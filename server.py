@@ -16,7 +16,7 @@ st.set_page_config(
 @st.cache_resource
 def load_artifact():
     try:
-        artifact = joblib.load('models/full_pipeline.joblib')
+        artifact = joblib.load('full_pipeline.joblib')
         return artifact
     except Exception as e:
         st.error(f"Ошибка загрузки модели: {e}")
@@ -25,7 +25,6 @@ def load_artifact():
 
 @st.cache_data
 def load_dataset():
-    """Загружает датасет для дашборда."""
     for path in ['real_estate_data.csv']:
         if os.path.exists(path):
             df = pd.read_csv(path, low_memory=False)
@@ -121,9 +120,7 @@ if page == "Прогноз":
             st.json(input_data)
 
 
-# ============================================================
 # Страница 2: ДАШБОРД
-# ============================================================
 elif page == "Дашборд":
     st.title("Дашборд проекта")
 
@@ -185,9 +182,7 @@ elif page == "Дашборд":
         st.bar_chart(subtype_counts)
 
 
-# ============================================================
 # Страница 3: СПРАВКА
-# ============================================================
 elif page == "Справка":
     st.title("Справка")
 
@@ -239,4 +234,4 @@ elif page == "Справка":
     """)
 
     st.markdown("---")
-    st.caption(f"Версия 2.0.0 · Автор: [Ваше имя] · {datetime.now().year}")
+    st.caption(f"Версия 2.0.0 · Автор: Юсупов Айдар Ришатович 23П-1 · {datetime.now().year}")

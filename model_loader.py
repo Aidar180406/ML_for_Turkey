@@ -18,7 +18,7 @@ class Predictor:
         self.best_model_name = None
         self.is_loaded = False
 
-    def load_model(self, path='models/full_pipeline.joblib'):
+    def load_model(self, path='full_pipeline.joblib'):
         if not os.path.exists(path):
             logger.error(f"❌ Файл не найден: {path}")
             return False
