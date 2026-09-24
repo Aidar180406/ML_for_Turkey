@@ -1,16 +1,13 @@
-# В терминале с активированным venv:
-pip freeze | findstr "scikit-learn numpy pandas fastapi uvicorn pydantic joblib"
-
 # Windows
 python -m venv .venv
 .venv\Scripts\activate
-
-# Linux / macOS
+pip install -r requirements.txt
+streamlit run server.py
+# Linux
 python3 -m venv .venv
 source .venv/bin/activate
-
 pip install -r requirements.txt
+streamlit run server.py
+#Проверка streamlit
+streamlit --version
 
-python server.py
-
-python api.py
