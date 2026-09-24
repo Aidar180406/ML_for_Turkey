@@ -45,7 +45,6 @@ Thumbs.db
 !requirements.txt
 
 # Модель (большие бинарные файлы)
-*.joblib
 *.pkl
 *.h5
 

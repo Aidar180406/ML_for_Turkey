@@ -27,9 +27,7 @@ app.add_middleware(
 )
 
 
-# ============================================================
 # Pydantic-модели
-# ============================================================
 
 class PropertyFeatures(BaseModel):
     size: float = Field(..., ge=20, le=1000, description="Площадь, м²")
@@ -86,9 +84,7 @@ class MetadataResponse(BaseModel):
     listing_types: List[int]
 
 
-# ============================================================
 # Startup
-# ============================================================
 
 @app.on_event("startup")
 async def startup_event():
@@ -103,9 +99,7 @@ async def startup_event():
         raise RuntimeError("Не удалось загрузить модель")
 
 
-# ============================================================
 # Эндпоинты
-# ============================================================
 
 @app.get("/", tags=["Health"])
 async def root():
